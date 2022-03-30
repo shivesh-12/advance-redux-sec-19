@@ -1,11 +1,14 @@
-import React from "react";
-import "./style.css";
+import Cart from './components/Cart/Cart';
+import Layout from './components/Layout/Layout';
+import Products from './components/Shop/Products';
 
-export default function App() {
+function App() {
   return (
-    <div>
-      <h1>Hello StackBlitz!</h1>
-      <p>Start editing to see some magic happen :)</p>
-    </div>
+    <Layout>
+      <Cart />
+      <Products />
+    </Layout>
   );
 }
+
+export default App;
