@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import React, { Fragment } from 'react';
 import MainHeader from './MainHeader';
 
 const Layout = (props) => {
@@ -8,6 +8,6 @@ const Layout = (props) => {
       <main>{props.children}</main>
     </Fragment>
   );
-}; 
+};
 
 export default Layout;
