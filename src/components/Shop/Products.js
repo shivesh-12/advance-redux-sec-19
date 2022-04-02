@@ -17,7 +17,7 @@ const Products = (props) => {
       <h2>Buy your favorite products</h2>
       <ul>
         {
-        DUMMY_PRODUCTS.map((product) => (
+        DUMMY_PRODUCTS.map(product => (
           <ProductItem
             key={product.id}
             id={product.id}  
@@ -25,7 +25,7 @@ const Products = (props) => {
             price={product.id}
             description={product.id}
           />
-        ),
+        )
       }
       </ul>
     </section>
