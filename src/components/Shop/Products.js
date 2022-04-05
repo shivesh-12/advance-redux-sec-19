@@ -9,7 +9,7 @@ const DUMMY_PRODUCTS = [
     price: '',
     description: '',
   }
-];
+]; 
 
 const Products = (props) => {
   return (
