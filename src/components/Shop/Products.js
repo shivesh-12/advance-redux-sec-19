@@ -21,9 +21,9 @@ const Products = (props) => {
           <ProductItem
             key={product.id}
             id={product.id}  
-            title={product.id}
-            price={product.id}
-            description={product.id}
+            title={product.title}
+            price={product.price}
+            description={product.description}
           />
         )
       }
