@@ -4,11 +4,17 @@ import classes from './Products.module.css';
 
 const DUMMY_PRODUCTS = [
   {
-    id: '',
-    title: '',
-    price: '',
-    description: ''
-  }
+    id: 'p1',
+    title: 'My First Book',
+    price: 100,
+    description: 'The First Product list.',
+  },
+  {
+    id: 'p2',
+    title: 'My Second Book',
+    price: 100,
+    description: 'The Second Product list.',
+  },
 ]; 
 
 const Products = (props) => {
@@ -16,17 +22,15 @@ const Products = (props) => {
     <section className={classes.products}>
       <h2>Buy your favorite products</h2>
       <ul>
-        {
-        DUMMY_PRODUCTS.map(product => (
+        {DUMMY_PRODUCTS.map((product) => (
           <ProductItem
             key={product.id}
-            id={product.id}  
+            id={product.id}
             title={product.title}
             price={product.price}
             description={product.description}
           />
-        )
-      }
+        ))}
       </ul>
     </section>
   );
