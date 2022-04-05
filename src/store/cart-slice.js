@@ -18,12 +18,22 @@ const cartSlice = createSlice({
           totalPrice: newItem.price,
           name: newItem.title,
         });
-      } else { 
+      } else {
         existingItem.quantity = existingItem.quantity + 1;
         existingItem.totalPrice = existingItem.totalPrice + newItem.price;
       }
     },
-    removeItemFromCart(state) {},
+    removeItemFromCart(state, action) {
+      const id = action.payload;
+      const existingItem = state.items.find((item) => item.id === id);
+      if (existingItem.quantity === 1) {
+        state.items = state.items.filter((item) => item.id !== id);
+      } else {
+        // existingItem.quantity--;
+        existingItem.quantity = existingItem.quantity - 1;
+        existingItem.totalPrice = existingItem.totalPrice - existingItem.price;
+      }
+    },
   },
 });
 
