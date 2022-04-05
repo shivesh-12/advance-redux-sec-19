@@ -7,7 +7,7 @@ const DUMMY_PRODUCTS = [
     id: '',
     title: '',
     price: '',
-    description: '',
+    description: ''
   }
 ]; 
 
