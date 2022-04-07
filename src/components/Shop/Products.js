@@ -1,7 +1,7 @@
 import React from 'react';
 import ProductItem from './ProductItem';
 import classes from './Products.module.css';
-
+import { useSelector } from 'react-redux';
 const DUMMY_PRODUCTS = [
   {
     id: 'p1',
@@ -15,9 +15,10 @@ const DUMMY_PRODUCTS = [
     price: 100,
     description: 'The Second Product list.',
   },
-]; 
+];
 
 const Products = (props) => {
+  const products = useSelector((state) => state.cart.itemQuantity);
   return (
     <section className={classes.products}>
       <h2>Buy your favorite products</h2>
