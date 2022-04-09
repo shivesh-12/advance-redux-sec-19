@@ -18,7 +18,7 @@ const DUMMY_PRODUCTS = [
 ];
 
 const Products = (props) => {
-  const products = useSelector((state) => state.cart.items);
+  
   return (
     <section className={classes.products}>
       <h2>Buy your favorite products</h2>
