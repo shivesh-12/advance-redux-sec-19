@@ -15,7 +15,7 @@ const Cart = (props) => {
             item={{
               title: item.name,
               quantity: item.quantity,
-              total: 18,
+              total: item.totalPrice,
               price: item.price,
             }}
           />
