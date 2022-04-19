@@ -11,7 +11,13 @@ function App() {
 
   useEffect(() => {
     const sendCartData = async () => {
-      dispatch(uiA);
+      dispatch(
+        uiActions.showNotification({
+          status: 'pending',
+          title: 'Sending...',
+          message: 'Sending cart data!',
+        })
+      );
       const response = await fetch(
         'https://react-redux-19-default-rtdb.firebaseio.com/cart.json',
         {
@@ -24,8 +30,24 @@ function App() {
         throw new Error('Sending cart data failed.');
       }
 
-      const responseData = await response.json();
+      dispatch(
+        uiActions.showNotification({
+          status: 'success',
+          title: 'Success!',
+          message: 'Send cart data successfully !',
+        })
+      );
     };
+
+    sendCartData.catch((error) => {
+      dispatch(
+        uiActions.showNotification({
+          status: 'error',
+          title: 'Error!',
+          message: 'Sending cart data failed!',
+        })
+      );
+    });
   }, [cart]);
 
   return (
