@@ -8,8 +8,11 @@ function App() {
   const cart = useSelector((state) => state.cart);
 
   useEffect(() => {
-    fetch('https://react-redux-19-default-rtdb.firebaseio.com/cart.json');
-  }, []);
+    fetch('https://react-redux-19-default-rtdb.firebaseio.com/cart.json', {
+      method: 'PUT',
+      body: JSON.stringify(cart),
+    });
+  }, [cart]);
 
   return (
     <Layout>
