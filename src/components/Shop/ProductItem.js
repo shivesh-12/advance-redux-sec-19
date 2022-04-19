@@ -5,13 +5,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { cartActions } from '../../store/cart-slice';
 
 const ProductItem = (props) => {
-  const cart = useSelector((state) => state.cart);  // this will return entire cart . means initialState of cart which contain totalQuantity and items
+  const cart = useSelector((state) => state.cart); // this will return entire cart . means initialState of cart which contain totalQuantity and items
   const dispatch = useDispatch();
 
   const { title, price, description, id } = props;
 
   const addToCartHandler = () => {
-    const newTotalQuantity = cart.totalQuantity + 1;
+    /* const newTotalQuantity = cart.totalQuantity + 1;
     // create copy via slice to avoid mutating original state
     const updatedItems = cart.items.slice();
     const existingItem = updatedItems.find((item) => item.id === id);
@@ -36,19 +36,19 @@ const ProductItem = (props) => {
       totalQuantity: newTotalQuantity,
       items: updatedItems,
     };
-
+*/
     dispatch(cartActions.replaceCart(newCart));
 
     // and then send Http request
     // fetch('firebase-url', { method: 'POST', body: JSON.stringify(newCart) })
 
-    // dispatch(
-    //   cartActions.addItemToCart({
-    //     id,
-    //     title,
-    //     price,
-    //   })
-    // );
+    dispatch(
+      cartActions.addItemToCart({
+        id,
+        title,
+        price,
+      })
+    );
   };
 
   return (
