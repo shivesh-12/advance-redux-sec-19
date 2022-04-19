@@ -8,10 +8,21 @@ function App() {
   const cart = useSelector((state) => state.cart); // use selector sets up a subscription to redux so whenever redux store dose change this will re-execute when cart is change.
 
   useEffect(() => {
-    fetch('https://react-redux-19-default-rtdb.firebaseio.com/cart.json', {
-      method: 'PUT',
-      body: JSON.stringify(cart),
-    });
+    const sendCartData = async () => {
+      const response = await fetch(
+        'https://react-redux-19-default-rtdb.firebaseio.com/cart.json',
+        {
+          method: 'PUT',
+          body: JSON.stringify(cart),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error('Sending cart data failed.');
+      }
+
+      const responseData = await response.json();
+    };
   }, [cart]);
 
   return (
