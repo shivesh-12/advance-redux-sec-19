@@ -1,13 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import Cart from './components/Cart/Cart';
 import Layout from './components/Layout/Layout';
 import Products from './components/Shop/Products';
 import { useSelector, useDispatch } from 'react-redux';
 import { uiActions } from './store/ui-slice';
+import Notification from './components/UI/Notification';
 function App() {
   const dispatch = useDispatch();
   const showCart = useSelector((state) => state.ui.cartIsVisible);
   const cart = useSelector((state) => state.cart); // use selector sets up a subscription to redux so whenever redux store dose change this will re-execute when cart is change.
+
+  const notification = useSelector((state) => state.ui.notification);
 
   useEffect(() => {
     const sendCartData = async () => {
@@ -39,7 +42,7 @@ function App() {
       );
     };
 
-    sendCartData.catch((error) => {
+    sendCartData().catch((error) => {
       dispatch(
         uiActions.showNotification({
           status: 'error',
@@ -48,13 +51,16 @@ function App() {
         })
       );
     });
-  }, [cart]);
+  }, [cart, dispatch]);
 
   return (
-    <Layout>
-      {showCart && <Cart />}
-      <Products />
-    </Layout>
+    <Fragment>
+      <Notification />
+      <Layout>
+        {showCart && <Cart />}
+        <Products />
+      </Layout>
+    </Fragment>
   );
 }
 
