@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { cartActions } from '../../store/cart-slice';
 
 const ProductItem = (props) => {
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state) => state.cart);  // this will return entire cart . means initialState of cart which contain totalQuantity and items
   const dispatch = useDispatch();
 
   const { title, price, description, id } = props;
