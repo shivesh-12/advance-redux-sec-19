@@ -17,13 +17,7 @@ function App() {
 
   useEffect(() => {
     const sendCartData = async () => {
-      dispatch(
-        uiActions.showNotification({
-          status: 'pending',
-          title: 'Sending...',
-          message: 'Sending cart data!',
-        })
-      );
+      
       const response = await fetch(
         'https://react-redux-19-default-rtdb.firebaseio.com/cart.json',
         {

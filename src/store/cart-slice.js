@@ -43,6 +43,23 @@ const cartSlice = createSlice({
   },
 });
 
+const sendCartData = (cart) => {
+  return async (dispatch) => {
+    dispatch(
+      uiActions.showNotification({
+        status: 'pending',
+        title: 'Sending...',
+        message: 'Sending cart data!',
+      })
+    );
+
+    const sendRequest = async () => {
+
+      
+    };
+  };
+};
+
 export const cartActions = cartSlice.actions;
 
 export default cartSlice;
